@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2022_01_29_171229) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "activity_id"
+    t.integer "activity_id", null: false
     t.index ["activity_id"], name: "index_childenrolls_on_activity_id"
   end
 
