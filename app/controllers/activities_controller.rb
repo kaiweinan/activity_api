@@ -19,9 +19,9 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new(activity_params)
 
     if @activity.save
-      render json: @activity, status: :created, location: @activity
+      render json: ActivitySerializer.new(@activity) , status: :created, location: @activity
     else
-      render json: @activity.errors, status: :unprocessable_entity
+      render json: ActivitySerializer.new(@activity).errors, status: :unprocessable_entity
     end
   end
 
