@@ -1,4 +1,6 @@
 class ChildenrollSerializer 
     include FastJsonapi::ObjectSerializer
-    attributes :id, :name
+    attributes :id, :name, :activity
+
+    
 end

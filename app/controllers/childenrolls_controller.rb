@@ -16,12 +16,13 @@ class ChildenrollsController < ApplicationController
 
   # POST /childenrolls
   def create
+    # byebug
     @childenroll = Childenroll.new(childenroll_params)
 
     if @childenroll.save
-      render json: @childenroll, status: :created, location: @childenroll
+      render json: ChildenrollSerializer.new(@childenroll), status: :created, location: @childenroll
     else
-      render json: @childenroll.errors, status: :unprocessable_entity
+      render json: ChildenrollSerializer.new(@childenroll).errors, status: :unprocessable_entity
     end
   end
 

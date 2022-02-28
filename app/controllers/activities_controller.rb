@@ -19,7 +19,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new(activity_params)
 
     if @activity.save
-      render json: ActivitySerializer.new(@activity) , status: :created, location: @activity
+      render json: ActivitySerializer.new(@activity), status: :created, location: @activity
     else
       render json: ActivitySerializer.new(@activity).errors, status: :unprocessable_entity
     end
@@ -27,10 +27,12 @@ class ActivitiesController < ApplicationController
 
   # PATCH/PUT /activities/1
   def update
+  #  byebug
     if @activity.update(activity_params)
-      render json: @activity
+      #byebug
+      render json: ActivitySerializer.new(@activity), status: :created, location: @activity
     else
-      render json: @activity.errors, status: :unprocessable_entity
+      render json: ActivitySerializer.new(@activity).errors, status: :unprocessable_entity
     end
   end
 
